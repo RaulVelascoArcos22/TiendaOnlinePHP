@@ -68,7 +68,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
       </div>
     </nav>
     <div class="container" id="main">
-            <div class="table-responsive">
+        <div class="table-responsive">
             <table class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -146,10 +146,21 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
 
                 </tfoot>
             </table>
-            </div>
-
-
-    </div> <!-- /container -->
+        </div>
+         <?php
+            if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+            ?>  
+        <div class="pull-left">
+            <a href="index.php" class="btn btn-info">Seguir Comprando</a>
+        </div>
+         <div class="pull-right">
+            <a href="finalizar.php" class="btn btn-success">Finalizar Compra</a>
+         </div>
+        </div>
+        <?php
+        }
+        ?>
+      </div> <!-- /container -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
 
