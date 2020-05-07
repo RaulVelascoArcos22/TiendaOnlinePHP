@@ -61,7 +61,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])){
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="" class="btn">CARRITO <span class="badge"> <?php print cantidadPeliculas(); ?></span></a>
+              <a href="#" class="btn">CARRITO <span class="badge"> <?php print cantidadPeliculas(); ?></span></a>
             </li> 
           </ul>
         </div>

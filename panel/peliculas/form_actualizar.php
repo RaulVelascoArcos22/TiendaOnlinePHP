@@ -66,80 +66,62 @@
     </nav>
 
     <div class="container" id="main" >
-      <div class="row">
-        <div class="col-md-12">
-          <fieldset>
-            <legend>Datos de la Pelicula</legend>
-            <form method="POST" action="../acciones.php" enctype="multipart/form-data" > 
-            <input type="hidden" name="id" value="<?php print $resultado['id'] ?>">
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Titulo</label>
-                          <input value="<?php print $resultado['titulo'] ?>" type="text" class="form-control" name="titulo" required>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Descripción</label>
-                          <textarea class="form-control" name="descripcion" id="" cols="3" required>
-                          <?php print $resultado['descripcion']?>
-                          </textarea>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Categorias</label>
-                          <select class="form-control" name="categoria_id" required>
-                            <option value="">--SELECCIONE--</option>
-                            <?php
-                             require '../../vendor/autoload.php';
-                              $categoria = new Kawschool\Categoria;
-                              $info_categoria = $categoria->mostrar();
-                              $cantidad = count($info_categoria);
-                                for($x =0; $x< $cantidad;$x++){
-                                  $item = $info_categoria[$x];
-                              ?>
-                                <option value="<?php print $item['id'] ?>"
-                                 <?php print $resultado['categoria_id']== $item['id'] ?'selected':'' ?>
-                                ><?php print $item['nombre'] ?></option>
+      <div class="main-form"">
+        <div class="row">
+          <div class="col-md-12">
+            <fieldset>
+              <legend>Datos de la Pelicula</legend>
+              <form method="POST" action="../acciones.php" enctype="multipart/form-data" > 
+              <input type="hidden" name="id" value="<?php print $resultado['id'] ?>">
+                        <div class="form-group">
+                            <label>Titulo</label>
+                            <input value="<?php print $resultado['titulo'] ?>" type="text" class="form-control" name="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea class="form-control" name="descripcion" id="" cols="3" required>
+                            <?php print $resultado['descripcion']?>
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Categorias</label>
+                            <select class="form-control" name="categoria_id" required>
+                              <option value="">--SELECCIONE--</option>
                               <?php
+                              require '../../vendor/autoload.php';
+                                $categoria = new Kawschool\Categoria;
+                                $info_categoria = $categoria->mostrar();
+                                $cantidad = count($info_categoria);
+                                  for($x =0; $x< $cantidad;$x++){
+                                    $item = $info_categoria[$x];
+                                ?>
+                                  <option value="<?php print $item['id'] ?>"
+                                  <?php print $resultado['categoria_id']== $item['id'] ?'selected':'' ?>
+                                  ><?php print $item['nombre'] ?></option>
+                                <?php
 
-                                }
-                              ?>
-                          </select>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Foto</label>
-                          <input type="file" class="form-control" name="foto">
-                          <input type="hidden" name="foto_temp" value="<?php print $resultado['foto']?>">
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="form-group">
-                          <label>Precio</label>
-                          <input value="<?php print $resultado['precio']?>" type="text" class="form-control" name="precio" placeholder="0.00" required>
-                      </div>
-                  </div>
-              </div>
-              <input type="submit" class="btn btn-primary" name="accion" value="Actualizar">
-              <a href="index.php" class="btn btn-default">Cancelar</a>
-            </form>
-          </fieldset>
-        
+                                  }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Foto</label>
+                            <input type="file" class="form-control" name="foto">
+                            <input type="hidden" name="foto_temp" value="<?php print $resultado['foto']?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Precio</label>
+                            <input value="<?php print $resultado['precio']?>" type="text" class="form-control" name="precio" placeholder="0.00" required>
+                        </div>
+                <input type="submit" class="btn btn-primary" name="accion" value="Actualizar">
+                <a href="index.php" class="btn btn-default">Cancelar</a>
+              </form>
+            </fieldset>
+          
+          </div>
         </div>
-      </div>
-
+      </div>                           
     </div> 
     <script src="../../assets/js/jquery.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
