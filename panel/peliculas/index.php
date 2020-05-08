@@ -97,7 +97,7 @@
                       <td><?php print $c?></td>
                       <td><?php print $item['titulo']?></td>
                       <td><?php print $item['nombre']?></td>
-                      <td><?php print $item['precio']?></td>
+                      <td><?php print '$ '.$item['precio'].' MNX'?></td>
                       <td class="text-center">
                         <?php
                           $foto = '../../imgS/'.$item['foto'];
